@@ -8,10 +8,24 @@ The program analyzes bike share data for a given city (Chicago, New York City, o
 
 The program outputs statistical information about times, stations, trip durations and users. The user can also optionally view the raw data about the trips.
 
+The data files for the cities are not included in the repository, but they are based on the data provided by [Motivate][1].
+
+[1]: [https://www.motivateco.com]
+
 ### Files used
 bikeshare.py
 
 ### Credits
+
+#### Original data files
+
+1. Chicago: https://www.divvybikes.com/system-data
+
+2. New York City: https://www.citibikenyc.com/system-data
+
+3. Washington, DC: https://www.capitalbikeshare.com/system-data
+
+#### Sources
 
 1. Convert time to 12h format
 * https://stackoverflow.com/questions/13855111/how-can-i-convert-24-hour-time-to-12-hour-time
