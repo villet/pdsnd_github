@@ -51,3 +51,9 @@ bikeshare.py
 2. New York City: https://www.citibikenyc.com/system-data
 
 3. Washington, DC: https://www.capitalbikeshare.com/system-data
+
+### Acknowledges
+
+1. Keep a Changelog https://keepachangelog.com/en/1.0.0/
+
+2. Markdown Syntax https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
