@@ -39,6 +39,10 @@ Optional data columns for users:
 - Gender
 - Birth Year
 
+### Requirements
+
+The program requires Python version 3, and [pandas package](https://pandas.pydata.org "pandas website") which is part of [Anaconda distribution](https://www.anaconda.com "Anaconda website").
+
 ### Files used
 bikeshare.py
 
