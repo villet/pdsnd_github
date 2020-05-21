@@ -6,7 +6,14 @@
 ### Description
 The program analyzes bike share data for a given city (Chicago, New York City, or Washington, DC). The user can optionally filter the data by a month and/or a day of week.
 
-The program outputs statistical information about times, stations, trip durations and users. The user can also optionally view the raw data about the trips.
+The program outputs statistical information about:
+
+- Popular times of travel
+- Popular stations and trips
+- Trip duration
+- User info
+
+The user can also optionally view the raw data about the trips.
 
 ### Data Columns
 
