@@ -8,9 +8,22 @@ The program analyzes bike share data for a given city (Chicago, New York City, o
 
 The program outputs statistical information about times, stations, trip durations and users. The user can also optionally view the raw data about the trips.
 
-The data files for the cities are not included in the repository, but they are based on the data provided by [Motivate][1].
+### Data Columns
 
-[1]: [https://www.motivateco.com]
+The data files for the cities are not included in the repository, but they are based on the data provided by [Motivate](https://www.motivateco.com "Motivate website"). Links to the original data files are listed in Additional Sources.
+
+The program reads CVS files and uses the following data columns:
+
+- Start Time (date + time)
+- End Time (date + time)
+- Trip Duration (in seconds)
+- Start Station
+- End Station
+- User Type
+
+Optional data columns for users:
+- Gender
+- Birth Year
 
 ### Files used
 bikeshare.py
