@@ -266,9 +266,9 @@ def time_stats(dframe, month, day):
 
     # - Adding thousand separator to numbers [3]
     if month == 'all':
-        print('(count: {:,}'.format(top_month_occ) + ')')
+        print('(count: {:,})'.format(top_month_occ))
     else:
-        print('(count: {:,}'.format(top_month_occ) + ') NOTE: month filter applied')
+        print('(count: {:,}) NOTE: month filter applied'.format(top_month_occ))
 
     # Display the most common day of week
     top_dow = dframe['day_of_week'].mode()[0]
@@ -276,9 +276,9 @@ def time_stats(dframe, month, day):
     print('Most frequent travel day of week:', top_dow, end=' ')
 
     if day == 'all':
-        print('(count: {:,}'.format(top_dow_occ) + ')')
+        print('(count: {:,})'.format(top_dow_occ))
     else:
-        print('(count: {:,}'.format(top_dow_occ) + ') NOTE: day of week filter applied')
+        print('(count: {:,}) NOTE: day of week filter applied'.format(top_dow_occ))
 
     # Display the most common start hour
     dframe['hour'] = dframe['Start Time'].dt.hour
@@ -288,7 +288,7 @@ def time_stats(dframe, month, day):
     # - Converting to 12h format
     top_hour = datetime.strptime(str(top_hour), '%H').strftime('%-I %p')
     print('Most frequent travel start hour:', top_hour, end=' ')
-    print('(count: {:,}'.format(top_hour_occ) + ')')
+    print('(count: {:,})'.format(top_hour_occ))
 
     print("\nThis took %.2f seconds." % (time.time() - start_time))
     print('-'*40)
@@ -309,20 +309,20 @@ def station_stats(dframe):
     top_start_station = dframe['Start Station'].mode()[0]
     top_start_station_occ = dframe['Start Station'].value_counts().max()
     print('Most frequent start station:', top_start_station, end=' ')
-    print('(count: {:,}'.format(top_start_station_occ) + ')')
+    print('(count: {:,})'.format(top_start_station_occ))
 
     # Display most commonly used end station
     top_end_station = dframe['End Station'].mode()[0]
     top_end_station_occ = dframe['End Station'].value_counts().max()
     print('Most frequent end station:', top_end_station, end=' ')
-    print('(count: {:,}'.format(top_end_station_occ) + ')')
+    print('(count: {:,})'.format(top_end_station_occ))
 
     # Display most frequent combination of start station and end station trip
     # - Grouping Start and End Station columns [2]
     top_trip = dframe.groupby(['Start Station', 'End Station']).size().idxmax()
     top_trip_occ = dframe.groupby(['Start Station', 'End Station']).size().max()
     print('Most frequent trip:', top_trip[0], '-', top_trip[1], end=' ')
-    print('(count: {:,}'.format(top_trip_occ) + ')')
+    print('(count: {:,})'.format(top_trip_occ))
 
     print("\nThis took %.2f seconds." % (time.time() - start_time))
     print('-'*40)
@@ -366,9 +366,9 @@ def print_duration(duration):
     try:
         if duration.days > 0:
             if duration.days != 1:
-                print('{:,}'.format(duration.days), 'days ', end='')
+                print('{:,} days '.format(duration.days), end='')
             else:
-                print('%s day ' % duration.days, end='')
+                print('{} day '.format(duration.days), end='')
     except AttributeError:
         pass
 
@@ -446,7 +446,7 @@ def print_distribution(dist_data):
     """
 
     for key in dist_data.keys():
-        print('- ' + key + ': {:,}'.format(dist_data[key]))
+        print('- {}: {:,}'.format(key, dist_data[key]))
 
 def raw_trip_data(city):
     """
