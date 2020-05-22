@@ -74,12 +74,12 @@ def get_city_input():
         elif CITY_DATA.get(city):
             valid_input = True
         else:
-            print('\nInvalid input:', city, '\nThe options are ', end='')
+            print('\nInvalid input: {}\nThe options are '.format(city), end='')
             print_list(CITY_DATA)
             print('\nOr type "x" to exit the program.')
 
     # Confirm input
-    print('\n->', city.title(), 'selected as the city.\n')
+    print('\n-> {} selected as the city.\n'.format(city.title()))
 
     return city
 
@@ -150,12 +150,12 @@ def get_month_input():
         elif month in MONTHS:
             valid_input = True
         else:
-            print('\nInvalid input:', month, '\nThe options are', end=' ')
+            print('\nInvalid input: {}\nThe options are'.format(month), end=' ')
             print_list(MONTHS)
             print('\nOr type "x" to exit the program.')
 
     # Confirm input
-    print('\n->', month.title(), 'selected. Data will be filtered by the selected month.\n')
+    print('\n-> {} selected. Data will be filtered by the selected month.\n'.format(month.title()))
 
     return month
 
@@ -184,12 +184,12 @@ def get_dow_input():
         elif day in DAYS_OF_WEEK:
             valid_input = True
         else:
-            print('\nInvalid input:', day, '\nThe options are', end=' ')
+            print('\nInvalid input: {}\nThe options are'.format(day), end=' ')
             print_list(DAYS_OF_WEEK)
             print('\nOr type "x" to exit the program.')
 
     # Confirm input
-    print('\n->', day.title(), 'selected. Data will be filtered by the selected week of day.\n')
+    print('\n-> {} selected. Data will be filtered by the selected day.\n'.format(day.title()))
 
     return day
 
@@ -478,7 +478,7 @@ def raw_trip_data(city):
             print('\n-> No selected. Skipping trip data output.')
             valid_input = True
         else:
-            print('\nInvalid input:', answer, '\nThe options are "yes" or "no".')
+            print('\nInvalid input: {}\nThe options are "yes" or "no".'.format(answer))
             print('Or type "x" to exit the program.')
 
     # Process and show output for next inputs
@@ -503,7 +503,7 @@ def raw_trip_data(city):
                 print('\n-> No selected. Exiting trip data output.')
                 valid_input = True
             else:
-                print('\nInvalid input:', answer, '\nThe options are "yes" or "no".')
+                print('\nInvalid input: {}\nThe options are "yes" or "no".'.format(answer))
                 print('Or type "x" to exit the program.')
 
         first_shown_row += 5
