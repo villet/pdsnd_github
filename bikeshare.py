@@ -74,12 +74,12 @@ def get_city_input():
         elif CITY_DATA.get(city):
             valid_input = True
         else:
-            print('\nInvalid input:', city, '\nThe options are ', end='')
+            print('\nInvalid input: {}\nThe options are '.format(city), end='')
             print_list(CITY_DATA)
             print('\nOr type "x" to exit the program.')
 
     # Confirm input
-    print('\n->', city.title(), 'selected as the city.\n')
+    print('\n-> {} selected as the city.\n'.format(city.title()))
 
     return city
 
@@ -150,12 +150,12 @@ def get_month_input():
         elif month in MONTHS:
             valid_input = True
         else:
-            print('\nInvalid input:', month, '\nThe options are', end=' ')
+            print('\nInvalid input: {}\nThe options are'.format(month), end=' ')
             print_list(MONTHS)
             print('\nOr type "x" to exit the program.')
 
     # Confirm input
-    print('\n->', month.title(), 'selected. Data will be filtered by the selected month.\n')
+    print('\n-> {} selected. Data will be filtered by the selected month.\n'.format(month.title()))
 
     return month
 
@@ -184,12 +184,12 @@ def get_dow_input():
         elif day in DAYS_OF_WEEK:
             valid_input = True
         else:
-            print('\nInvalid input:', day, '\nThe options are', end=' ')
+            print('\nInvalid input: {}\nThe options are'.format(day), end=' ')
             print_list(DAYS_OF_WEEK)
             print('\nOr type "x" to exit the program.')
 
     # Confirm input
-    print('\n->', day.title(), 'selected. Data will be filtered by the selected week of day.\n')
+    print('\n-> {} selected. Data will be filtered by the selected day.\n'.format(day.title()))
 
     return day
 
@@ -266,9 +266,9 @@ def time_stats(dframe, month, day):
 
     # - Adding thousand separator to numbers [3]
     if month == 'all':
-        print('(count: {:,}'.format(top_month_occ) + ')')
+        print('(count: {:,})'.format(top_month_occ))
     else:
-        print('(count: {:,}'.format(top_month_occ) + ') NOTE: month filter applied')
+        print('(count: {:,}) NOTE: month filter applied'.format(top_month_occ))
 
     # Display the most common day of week
     top_dow = dframe['day_of_week'].mode()[0]
@@ -276,9 +276,9 @@ def time_stats(dframe, month, day):
     print('Most frequent travel day of week:', top_dow, end=' ')
 
     if day == 'all':
-        print('(count: {:,}'.format(top_dow_occ) + ')')
+        print('(count: {:,})'.format(top_dow_occ))
     else:
-        print('(count: {:,}'.format(top_dow_occ) + ') NOTE: day of week filter applied')
+        print('(count: {:,}) NOTE: day of week filter applied'.format(top_dow_occ))
 
     # Display the most common start hour
     dframe['hour'] = dframe['Start Time'].dt.hour
@@ -288,7 +288,7 @@ def time_stats(dframe, month, day):
     # - Converting to 12h format
     top_hour = datetime.strptime(str(top_hour), '%H').strftime('%-I %p')
     print('Most frequent travel start hour:', top_hour, end=' ')
-    print('(count: {:,}'.format(top_hour_occ) + ')')
+    print('(count: {:,})'.format(top_hour_occ))
 
     print("\nThis took %.2f seconds." % (time.time() - start_time))
     print('-'*40)
@@ -309,20 +309,20 @@ def station_stats(dframe):
     top_start_station = dframe['Start Station'].mode()[0]
     top_start_station_occ = dframe['Start Station'].value_counts().max()
     print('Most frequent start station:', top_start_station, end=' ')
-    print('(count: {:,}'.format(top_start_station_occ) + ')')
+    print('(count: {:,})'.format(top_start_station_occ))
 
     # Display most commonly used end station
     top_end_station = dframe['End Station'].mode()[0]
     top_end_station_occ = dframe['End Station'].value_counts().max()
     print('Most frequent end station:', top_end_station, end=' ')
-    print('(count: {:,}'.format(top_end_station_occ) + ')')
+    print('(count: {:,})'.format(top_end_station_occ))
 
     # Display most frequent combination of start station and end station trip
     # - Grouping Start and End Station columns [2]
     top_trip = dframe.groupby(['Start Station', 'End Station']).size().idxmax()
     top_trip_occ = dframe.groupby(['Start Station', 'End Station']).size().max()
     print('Most frequent trip:', top_trip[0], '-', top_trip[1], end=' ')
-    print('(count: {:,}'.format(top_trip_occ) + ')')
+    print('(count: {:,})'.format(top_trip_occ))
 
     print("\nThis took %.2f seconds." % (time.time() - start_time))
     print('-'*40)
@@ -366,9 +366,9 @@ def print_duration(duration):
     try:
         if duration.days > 0:
             if duration.days != 1:
-                print('{:,}'.format(duration.days), 'days ', end='')
+                print('{:,} days '.format(duration.days), end='')
             else:
-                print('%s day ' % duration.days, end='')
+                print('{} day '.format(duration.days), end='')
     except AttributeError:
         pass
 
@@ -446,7 +446,7 @@ def print_distribution(dist_data):
     """
 
     for key in dist_data.keys():
-        print('- ' + key + ': {:,}'.format(dist_data[key]))
+        print('- {}: {:,}'.format(key, dist_data[key]))
 
 def raw_trip_data(city):
     """
@@ -478,7 +478,7 @@ def raw_trip_data(city):
             print('\n-> No selected. Skipping trip data output.')
             valid_input = True
         else:
-            print('\nInvalid input:', answer, '\nThe options are "yes" or "no".')
+            print('\nInvalid input: {}\nThe options are "yes" or "no".'.format(answer))
             print('Or type "x" to exit the program.')
 
     # Process and show output for next inputs
@@ -503,7 +503,7 @@ def raw_trip_data(city):
                 print('\n-> No selected. Exiting trip data output.')
                 valid_input = True
             else:
-                print('\nInvalid input:', answer, '\nThe options are "yes" or "no".')
+                print('\nInvalid input: {}\nThe options are "yes" or "no".'.format(answer))
                 print('Or type "x" to exit the program.')
 
         first_shown_row += 5
